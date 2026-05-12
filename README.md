@@ -1,20 +1,128 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+
+# ⚖️ LexPath Alpha
+### Causal Litigation Intelligence Engine for Indian Courts
+
+Transforming litigation from reactive prediction into dynamic legal strategy simulation.
+
+---
+
+Built with:
+FastAPI • React • Framer Motion • DoWhy • EconML • River • FAISS • Neo4j-style Graph Retrieval
+
 </div>
 
-# Run and deploy your AI Studio app
+---
 
-This contains everything you need to run your app locally.
+# 🧠 What is LexPath Alpha?
 
-View your app in AI Studio: https://ai.studio/apps/5c36bdae-b7ec-4be3-8671-725969140a35
+LexPath Alpha is an AI-powered litigation intelligence system designed to model, simulate, and explain the progression of legal cases in Indian courts.
 
-## Run Locally
+Unlike traditional legal dashboards or chatbot-based systems, LexPath treats litigation as an evolving probabilistic system.
 
-**Prerequisites:**  Node.js
+The platform converts natural-language case narratives into:
 
+- structured legal states
+- procedural timelines
+- causal risk analysis
+- strategic interventions
+- predictive simulations
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+# 🚀 Core Features
+
+## 📖 Narrative-to-Case Intelligence
+Users describe their case in plain language.
+
+LexPath extracts:
+- delays
+- evidence quality
+- backlog pressure
+- procedural risk
+- adversarial behavior
+
+and converts them into structured legal state vectors.
+
+---
+
+## ⏳ Dynamic Litigation Timeline
+The system generates:
+
+- P10 / P50 / P90 duration estimates
+- procedural stage forecasts
+- uncertainty-aware timelines
+- evolving litigation projections
+
+---
+
+## 🧬 Causal Inference Engine
+Powered by:
+- DoWhy
+- EconML (CausalForestDML)
+
+LexPath estimates how different legal factors influence duration and risk.
+
+Example:
+> “Court backlog is contributing approximately +8 months to expected duration.”
+
+---
+
+## 🔁 Decision Simulation Engine
+Users can simulate strategic interventions:
+
+- reducing adjournments
+- improving evidence quality
+- procedural acceleration
+
+The engine recalculates:
+- duration
+- uncertainty
+- litigation trajectory
+
+in real time.
+
+---
+
+## 🕸️ Graph-Based Similar Case Retrieval
+Using:
+- node2vec embeddings
+- FAISS vector search
+- graph retrieval logic
+
+LexPath identifies structurally similar litigation trajectories beyond keyword matching.
+
+---
+
+## 📈 Online Learning & Drift Detection
+Powered by:
+- River
+- ADWIN
+
+The system supports:
+- streaming updates
+- prediction calibration
+- concept drift detection
+
+---
+
+# 🏗️ System Architecture
+
+```text
+Narrative Input
+    ↓
+Feature Extraction
+    ↓
+Case State Engine
+    ↓
+ML Prediction Layer
+    ↓
+Bayesian Adjustment
+    ↓
+Graph Similarity Retrieval
+    ↓
+Monte Carlo Simulation
+    ↓
+Causal Explainability
+    ↓
+Strategic Recommendations
