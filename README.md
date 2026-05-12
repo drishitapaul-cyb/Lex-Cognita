@@ -1,20 +1,17 @@
 <div align="center">
 
-# ⚖️ LexPath Alpha
+# LexPath Alpha
 ### Causal Litigation Intelligence Engine for Indian Courts
 
 Transforming litigation from reactive prediction into dynamic legal strategy simulation.
 
----
-
-Built with:
-FastAPI • React • Framer Motion • DoWhy • EconML • River • FAISS • Neo4j-style Graph Retrieval
+Built with FastAPI, React, Framer Motion, DoWhy, EconML, River, FAISS, and graph-based retrieval systems.
 
 </div>
 
 ---
 
-# 🧠 What is LexPath Alpha?
+# Overview
 
 LexPath Alpha is an AI-powered litigation intelligence system designed to model, simulate, and explain the progression of legal cases in Indian courts.
 
@@ -30,13 +27,14 @@ The platform converts natural-language case narratives into:
 
 ---
 
-# 🚀 Core Features
+# Core Features
 
-## 📖 Narrative-to-Case Intelligence
-Users describe their case in plain language.
+## Narrative-to-Case Intelligence
+
+Users describe their case in natural language.
 
 LexPath extracts:
-- delays
+- delay indicators
 - evidence quality
 - backlog pressure
 - procedural risk
@@ -46,9 +44,9 @@ and converts them into structured legal state vectors.
 
 ---
 
-## ⏳ Dynamic Litigation Timeline
-The system generates:
+## Dynamic Litigation Timeline
 
+The system generates:
 - P10 / P50 / P90 duration estimates
 - procedural stage forecasts
 - uncertainty-aware timelines
@@ -56,21 +54,23 @@ The system generates:
 
 ---
 
-## 🧬 Causal Inference Engine
+## Causal Inference Engine
+
 Powered by:
 - DoWhy
 - EconML (CausalForestDML)
 
-LexPath estimates how different legal factors influence duration and risk.
+LexPath estimates how different legal factors influence duration and litigation risk.
 
 Example:
+
 > “Court backlog is contributing approximately +8 months to expected duration.”
 
 ---
 
-## 🔁 Decision Simulation Engine
-Users can simulate strategic interventions:
+## Decision Simulation Engine
 
+Users can simulate strategic interventions such as:
 - reducing adjournments
 - improving evidence quality
 - procedural acceleration
@@ -84,7 +84,8 @@ in real time.
 
 ---
 
-## 🕸️ Graph-Based Similar Case Retrieval
+## Graph-Based Similar Case Retrieval
+
 Using:
 - node2vec embeddings
 - FAISS vector search
@@ -94,7 +95,8 @@ LexPath identifies structurally similar litigation trajectories beyond keyword m
 
 ---
 
-## 📈 Online Learning & Drift Detection
+## Online Learning & Drift Detection
+
 Powered by:
 - River
 - ADWIN
@@ -106,7 +108,7 @@ The system supports:
 
 ---
 
-# 🏗️ System Architecture
+# System Architecture
 
 ```text
 Narrative Input
