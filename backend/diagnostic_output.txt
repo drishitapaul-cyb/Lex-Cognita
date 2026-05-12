@@ -1,0 +1,265 @@
+﻿================================================================================
+FORENSIC DIAGNOSTIC: CaseStateEngine Execution Integrity
+================================================================================
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+NARRATIVE [A_HIGH_BACKLOG_DELAYS]
+  TEXT: Civil suit for recovery of money filed in Patna District Court, Bihar. Court has 8000 pending cases....
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  [L1-ML]       raw_ml=2967d
+  [L2-BAYES]    signals=['repeated_adjournments', 'irritation']
+                judge_modifier=1.0
+                belief: strict=0.558 delay_tol=0.6 proc_sens=0.68
+  [L3-GRAPH]    similar_cases=0
+  [L4-CAUSAL]   effects=2
+                  Backlog Vector: 703d [High (SCM)]
+                  Adjournment Frequency: 539d [High (SCM)]
+  [L5-SHAP]     drivers=3
+                  #1 Court Backlog Load: -152d [High]
+                  #2 Adjournment Frequency: +139d [High]
+                  #3 Bail Classification: +116d [High]
+  [L6-SIM]      decisions=4
+                  'Lok Adalat / Settlement': -2106d (p=0.50) risk=Moderate. Award is final and n
+                  'Adjournment Discipline': -339d (p=0.50) risk=Minimal. Requires daily attend
+                  'Early Hearing Request': -125d (p=0.50) risk=Low -- judge may resist if doc
+  [L7-ONLINE]   drift=RECALIBRATED pred=2021d
+  [L8-TIMELINE] P10=1377 | P50=2176 | P90=3183
+  [LAYERS]      active=5/6 -> {'ml_gbr': True, 'bayesian': True, 'causal': True, 'graph': False, 'online': True, 'simulation': True}
+  [VALIDATE]    p10 < p50 < p90 ? PASS
+  [DATES]       P10=Feb 2030 | P50=Apr 2032 | P90=Jan 2035
+  [EXPLAIN]     mentions_state=True mentions_p50=True
+                first_100: "Based on 2,026 real case outcomes in Bihar (Civil, District Court), the system projects approximatel..."
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+NARRATIVE [B_STRONG_EVIDENCE_LOW_DELAYS]
+  TEXT: Property partition suit in Bangalore Urban District Court, Karnataka. Only 2 adjournments. 800 pendi...
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  [L1-ML]       raw_ml=2089d
+  [L2-BAYES]    signals=['compliant_submission', 'settlement_attempt']
+                judge_modifier=1.0
+                belief: strict=0.416 delay_tol=0.544 proc_sens=0.435
+  [L3-GRAPH]    similar_cases=0
+  [L4-CAUSAL]   effects=2
+                  Backlog Vector: 867d [High (SCM)]
+                  Adjournment Frequency: 465d [High (SCM)]
+  [L5-SHAP]     drivers=3
+                  #1 Court Backlog Load: -616d [High]
+                  #2 Adjournment Frequency: -422d [High]
+                  #3 Bail Classification: +142d [High]
+  [L6-SIM]      decisions=4
+                  'Lok Adalat / Settlement': -462d (p=0.50) risk=Moderate. Award is final and n
+                  'Evidence Strengthening': -47d (p=0.50) risk=None procedurally. Upfront inv
+                  'Adjournment Discipline': +0d (p=0.50) risk=Minimal. Requires daily attend
+  [L7-ONLINE]   drift=RECALIBRATED pred=1973d
+  [L8-TIMELINE] P10=361 | P50=494 | P90=621
+  [LAYERS]      active=5/6 -> {'ml_gbr': True, 'bayesian': True, 'causal': True, 'graph': False, 'online': True, 'simulation': True}
+  [VALIDATE]    p10 < p50 < p90 ? PASS
+  [DATES]       P10=May 2027 | P50=Sep 2027 | P90=Jan 2028
+  [EXPLAIN]     mentions_state=True mentions_p50=True
+                first_100: "Based on 403 real case outcomes in Karnataka (Property, District Court), the system projects approxi..."
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+NARRATIVE [C_FAMILY_COURT_EMOTIONAL]
+  TEXT: Divorce petition under Hindu Marriage Act Section 13 in Lucknow Family Court, Uttar Pradesh. Domesti...
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  [L1-ML]       raw_ml=2740d
+  [L2-BAYES]    signals=['repeated_adjournments', 'missing_docs', 'irritation']
+                judge_modifier=1.093
+                belief: strict=0.633 delay_tol=0.629 proc_sens=0.809
+  [L3-GRAPH]    similar_cases=0
+  [L4-CAUSAL]   effects=2
+                  Backlog Vector: 893d [High (SCM)]
+                  Adjournment Frequency: 441d [High (SCM)]
+  [L5-SHAP]     drivers=3
+                  #1 Bail Classification: +112d [High]
+                  #2 Court Backlog Load: -111d [High]
+                  #3 Adjournment Frequency: -110d [High]
+  [L6-SIM]      decisions=4
+                  'Lok Adalat / Settlement': -1847d (p=0.52) risk=Moderate. Award is final and n
+                  'Evidence Strengthening': -363d (p=0.50) risk=None procedurally. Upfront inv
+                  'Adjournment Discipline': -351d (p=0.53) risk=Minimal. Requires daily attend
+  [L7-ONLINE]   drift=RECALIBRATED pred=1785d
+  [L8-TIMELINE] P10=1124 | P50=1912 | P90=2746
+  [LAYERS]      active=5/6 -> {'ml_gbr': True, 'bayesian': True, 'causal': True, 'graph': False, 'online': True, 'simulation': True}
+  [VALIDATE]    p10 < p50 < p90 ? PASS
+  [DATES]       P10=Jun 2029 | P50=Aug 2031 | P90=Nov 2033
+  [EXPLAIN]     mentions_state=True mentions_p50=True
+                first_100: "Based on 365 real case outcomes in Uttar Pradesh (Family, Family Court), the system projects approxi..."
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+NARRATIVE [D_FAST_CONSUMER_FORUM]
+  TEXT: Consumer complaint for defective product filed in Mumbai Consumer Forum. Simple deficiency of servic...
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  [L1-ML]       raw_ml=2095d
+  [L2-BAYES]    signals=[]
+                judge_modifier=1.0
+                belief: strict=0.481 delay_tol=0.549 proc_sens=0.512
+  [L3-GRAPH]    similar_cases=0
+  [L4-CAUSAL]   effects=2
+                  Backlog Vector: 894d [High (SCM)]
+                  Adjournment Frequency: 418d [High (SCM)]
+  [L5-SHAP]     drivers=3
+                  #1 Adjournment Frequency: -475d [High]
+                  #2 Court Backlog Load: -320d [High]
+                  #3 Bail Classification: +115d [High]
+  [L6-SIM]      decisions=4
+                  'Lok Adalat / Settlement': -777d (p=0.50) risk=Moderate. Award is final and n
+                  'Evidence Strengthening': -74d (p=0.50) risk=None procedurally. Upfront inv
+                  'Early Hearing Request': -68d (p=0.74) risk=Low -- judge may resist if doc
+  [L7-ONLINE]   drift=RECALIBRATED pred=1839d
+  [L8-TIMELINE] P10=565 | P50=811 | P90=1074
+  [LAYERS]      active=5/6 -> {'ml_gbr': True, 'bayesian': True, 'causal': True, 'graph': False, 'online': True, 'simulation': True}
+  [VALIDATE]    p10 < p50 < p90 ? PASS
+  [DATES]       P10=Nov 2027 | P50=Aug 2028 | P90=Apr 2029
+  [EXPLAIN]     mentions_state=True mentions_p50=True
+                first_100: "Based on 416 real case outcomes in Maharashtra (Commercial, Consumer Court), the system projects app..."
+
+================================================================================
+STEP 2: CROSS-LAYER INFLUENCE VERIFICATION
+================================================================================
+
+  [TIMELINE P50]
+    A_HIGH_BACKLOG_DELAYS: 2176d
+    B_STRONG_EVIDENCE_LOW_DELAYS: 494d
+    C_FAMILY_COURT_EMOTIONAL: 1912d
+    D_FAST_CONSUMER_FORUM: 811d
+    Unique values: 4/4 -> PASS
+
+  [RAW ML]
+    A_HIGH_BACKLOG_DELAYS: 2967d
+    B_STRONG_EVIDENCE_LOW_DELAYS: 2089d
+    C_FAMILY_COURT_EMOTIONAL: 2740d
+    D_FAST_CONSUMER_FORUM: 2095d
+    Unique values: 4/4 -> PASS
+
+  [JUDGE MODIFIER]
+    A_HIGH_BACKLOG_DELAYS: 1.0
+    B_STRONG_EVIDENCE_LOW_DELAYS: 1.0
+    C_FAMILY_COURT_EMOTIONAL: 1.093
+    D_FAST_CONSUMER_FORUM: 1.0
+    Unique values: 2/4 -> PASS
+
+  [BAYESIAN SIGNALS]
+    A_HIGH_BACKLOG_DELAYS: ['repeated_adjournments', 'irritation']
+    B_STRONG_EVIDENCE_LOW_DELAYS: ['compliant_submission', 'settlement_attempt']
+    C_FAMILY_COURT_EMOTIONAL: ['repeated_adjournments', 'missing_docs', 'irritation']
+    D_FAST_CONSUMER_FORUM: []
+    Unique signal sets: 4/4 -> PASS
+
+  [BELIEFS]
+    A_HIGH_BACKLOG_DELAYS: strict=0.558 delay_tol=0.6 proc_sens=0.68
+    B_STRONG_EVIDENCE_LOW_DELAYS: strict=0.416 delay_tol=0.544 proc_sens=0.435
+    C_FAMILY_COURT_EMOTIONAL: strict=0.633 delay_tol=0.629 proc_sens=0.809
+    D_FAST_CONSUMER_FORUM: strict=0.481 delay_tol=0.549 proc_sens=0.512
+
+  [ONLINE MODEL]
+    A_HIGH_BACKLOG_DELAYS: 2021d
+    B_STRONG_EVIDENCE_LOW_DELAYS: 1973d
+    C_FAMILY_COURT_EMOTIONAL: 1785d
+    D_FAST_CONSUMER_FORUM: 1839d
+    Unique values: 4/4 -> PASS
+
+  [SHAP DRIVERS]
+    A_HIGH_BACKLOG_DELAYS: ['Court Backlog Load=-152d', 'Adjournment Frequency=+139d']
+    B_STRONG_EVIDENCE_LOW_DELAYS: ['Court Backlog Load=-616d', 'Adjournment Frequency=-422d']
+    C_FAMILY_COURT_EMOTIONAL: ['Bail Classification=+112d', 'Court Backlog Load=-111d']
+    D_FAST_CONSUMER_FORUM: ['Adjournment Frequency=-475d', 'Court Backlog Load=-320d']
+
+  [DECISION COUNTS]
+    A_HIGH_BACKLOG_DELAYS: 4 options
+    B_STRONG_EVIDENCE_LOW_DELAYS: 4 options
+    C_FAMILY_COURT_EMOTIONAL: 4 options
+    D_FAST_CONSUMER_FORUM: 4 options
+
+  [CROSS-CHECK: Bayesian -> Timeline]
+    A_HIGH_BACKLOG_DELAYS: raw_ml=2967 -> modifier=1.0 -> p50=2176 -> Bayesian NEUTRAL (no signals triggered judge shift)
+    B_STRONG_EVIDENCE_LOW_DELAYS: raw_ml=2089 -> modifier=1.0 -> p50=494 -> Bayesian NEUTRAL (no signals triggered judge shift)
+    C_FAMILY_COURT_EMOTIONAL: raw_ml=2740 -> modifier=1.093 -> p50=1912 -> Bayesian INFLUENCED? YES
+    D_FAST_CONSUMER_FORUM: raw_ml=2095 -> modifier=1.0 -> p50=811 -> Bayesian NEUTRAL (no signals triggered judge shift)
+
+================================================================================
+STEP 3: ADJOURNMENT SENSITIVITY TEST (via /predict)
+================================================================================
+  adj= 1 -> P10= 1019 | P50= 1370 | P90= 1763 | mod=1.0 | signals=[]
+  adj= 5 -> P10= 1074 | P50= 1444 | P90= 1858 | mod=1.0 | signals=[]
+  adj=15 -> P10= 1198 | P50= 1853 | P90= 2742 | mod=1.0 | signals=['repeated_adjournments']
+  adj=30 -> P10= 1484 | P50= 2295 | P90= 3397 | mod=1.0 | signals=['repeated_adjournments']
+  P50 increases with adjournments? PASS ([1370, 1444, 1853, 2295])
+  Signal differentiation: adj=1 signals=[] vs adj=30 signals=['repeated_adjournments'] -> PASS
+
+================================================================================
+STEP 4: BACKLOG SENSITIVITY TEST (via /predict)
+================================================================================
+  backlog=  200 -> P10=  838 | P50= 1127 | P90= 1450
+  backlog= 2000 -> P10= 1052 | P50= 1414 | P90= 1820
+  backlog= 5000 -> P10= 1468 | P50= 1974 | P90= 2541
+  backlog=10000 -> P10= 1680 | P50= 2259 | P90= 2908
+  P50 increases with backlog? PASS ([1127, 1414, 1974, 2259])
+
+================================================================================
+STEP 5: EVIDENCE QUALITY SENSITIVITY TEST
+================================================================================
+  evidence=0.10 -> P10= 1073 | P50= 1616 | P90= 2331 | mod=1.062 | signals=['missing_docs']
+  evidence=0.40 -> P10= 1079 | P50= 1450 | P90= 1867 | mod=1.0 | signals=[]
+  evidence=0.70 -> P10= 1052 | P50= 1414 | P90= 1820 | mod=1.0 | signals=['compliant_submission']
+  evidence=0.95 -> P10= 1012 | P50= 1360 | P90= 1751 | mod=1.0 | signals=['compliant_submission']
+  Weak evidence triggers 'missing_docs'? PASS
+  Strong evidence triggers 'compliant_submission'? PASS
+
+================================================================================
+STEP 6: ONLINE LEARNING VALIDATION
+================================================================================
+  [A_HIGH_BACKLOG_DELAYS]
+    drift_status: RECALIBRATED
+    prediction:   2021d
+    model_type:   River Online Regressor
+    GBR vs River delta: 31.9% -> INDEPENDENT
+  [B_STRONG_EVIDENCE_LOW_DELAYS]
+    drift_status: RECALIBRATED
+    prediction:   1973d
+    model_type:   River Online Regressor
+    GBR vs River delta: 5.6% -> INDEPENDENT
+
+================================================================================
+STEP 7: DECISION SIMULATION SENSITIVITY
+================================================================================
+  Narrative A decisions (4):
+    'Lok Adalat / Settlement': -2106d (p=0.50)
+    'Adjournment Discipline': -339d (p=0.50)
+    'Early Hearing Request': -125d (p=0.50)
+    'Evidence Strengthening': -77d (p=0.50)
+  Narrative B decisions (4):
+    'Lok Adalat / Settlement': -462d (p=0.50)
+    'Evidence Strengthening': -47d (p=0.50)
+    'Adjournment Discipline': +0d (p=0.50)
+    'Early Hearing Request': +11d (p=0.74)
+
+  Impact vectors: A=[-2106, -339, -125, -77] B=[-462, -47, 0, 11]
+  Different? PASS
+  Probability variations: {'Lok Adalat / Settlement': 0.0, 'Early Hearing Request': 0.24, 'Adjournment Discipline': 0.0, 'Evidence Strengthening': 0.0}
+  Belief-aware probability shift? PASS
+
+================================================================================
+FINAL SYSTEM HEALTH REPORT
+================================================================================
+
+  Engine initialized: True
+  GBR trained:       True
+  SHAP ready:        True
+  Causal treatments: ['backlog', 'adjournment']
+  Graph indexed:     False
+  Layers active:     5/6
+  Layer status:      {'ml_gbr': True, 'bayesian': True, 'causal': True, 'graph': False, 'online': True, 'simulation': True}
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  SUMMARY OF ISSUES:
+    No HTTP errors.
+    ALL CHECKS PASSED
+
+================================================================================
+DIAGNOSTIC COMPLETE
+================================================================================

@@ -1,0 +1,18 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+networkx
+python-dotenv
+river
+faiss-cpu
+pydantic
+pydantic-settings
+google-generativeai
+
+# Causal / Graph (Failsafe handled in code)
+dowhy
+econml
+node2vec
+neo4j
